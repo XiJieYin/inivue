@@ -16,8 +16,8 @@
 </template>
 
 <script>
-export default {
-  name: "Goods",
+export default {  
+  name: "Goods",  
   data(){
     return {
       value1:0

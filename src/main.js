@@ -3,8 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import Resource from 'vue-resource'
 
 Vue.config.productionTip = false
+Vue.use(Resource)
 
 //引入iview -- 全部导入
 import iView from 'iview';
@@ -31,7 +33,7 @@ Vue.use(iView, {
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router,
+  router,//路由
   components: { App },
   template: '<App/>'
 })

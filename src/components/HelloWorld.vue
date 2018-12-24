@@ -5,24 +5,24 @@
                 <Menu active-name="1-1" theme="dark" width="auto" :class="menuitemClasses">
                   <MenuItem name="1-1" to="goods">
                     <Icon type="logo-buffer"/>
-                    <span>商品</span>
+                    <span>{{goods}}</span>
                   </MenuItem>
                   <MenuItem name="1-2" to="shoppingcar">
                       <Icon type="ios-cart-outline"/>
-                      <span>购物车</span>
+                      <span>{{shoppingcar}}</span>
                   </MenuItem>
                   <MenuItem name="1-3" to="mine">
                       <Icon type="ios-contact"/>
-                      <span>我的</span>
+                      <span>{{mine}}</span>
                   </MenuItem>
                 </Menu>
-                <Icon @click.native="collapsedSider" style="width: 100%;cursor:pointer;" :type="turnRightOrLeft" size="24"></Icon>
+                <Icon @click.native="collapsedSider" style="width: 100%;cursor:pointer;text-align:center;" :type="turnRightOrLeft" size="24"/>
             </Sider>
             <Layout>
               <Header :style="{padding: 0}" class="layout-header-bar">
               </Header>
               <Content :style="{margin: '20px', background: '#fff', minHeight: '260px'}">
-                <router-view/>
+                <router-view @parentFieldChange="updateField($event)" :mine="mine" />
               </Content>
             </Layout>
         </Layout>
@@ -32,7 +32,10 @@
     export default {
         data () {
             return {
-                isCollapsed: false
+                isCollapsed: false,
+                goods:'商品',
+                shoppingcar:'购物车',
+                mine:'我的'
             }
         },
         computed: {
@@ -49,6 +52,9 @@
         methods: {
             collapsedSider () {
                 this.$refs.side1.toggleCollapse();
+            },
+            updateField(mine){
+              this.mine = mine;
             }
         }
     }
