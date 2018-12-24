@@ -6,6 +6,28 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+//引入iview -- 全部导入
+import iView from 'iview';
+import 'iview/dist/styles/iview.css';
+//iview 国际化
+import locale from 'iview/dist/locale/ja-JP';
+//定制主题
+import '../my-theme/dist/iview.css';
+Vue.use(iView, {
+  transfer: true,
+  size: 'large',
+  locale
+});
+
+//按需导入iview --现在不用了
+// import { Button, Table } from 'iview';
+// Vue.component('Button', Button);
+// Vue.component('Table', Table);
+//iview 国际化
+// import lang from 'iview/dist/locale/en-US';
+// configure language
+// locale(lang);
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
