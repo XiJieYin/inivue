@@ -236,7 +236,7 @@ index.html -> main.js -> App.vue -> components
 
 1   通过路由的配置调用对应的组件，组件里面嵌套组件，路由下面有子路由，路由调用后，dom构造前后有守卫，最后有钩子
 2   父组件可以向子组件传值，用[:field="value"] 在 [<router-view/>] 标签里面，子组件可以在[props]属性里面接传过来的值（最要是指明传过来的值的类型）
-3   在父组件里面 [<router-view/>] 里面 [:function="function(data)"], 然后在子组件可以注册方法用[$.emit(function,data...)]，可以找到绑定了这个[function]方法的是父组件，就能把值传给父组件
+3   在父组件里面 [<router-view/>] 里面 [:function="function(data)"], 然后在子组件可以注册方法用[this.$emit(function,data...)]，可以找到绑定了这个[function]方法的是父组件，就能把值传给父组件
 4   如果是一些需要计算才能拿到值的，不要把方法写在[methods{}]里面，写在[computed{}]里面
 ```
 
