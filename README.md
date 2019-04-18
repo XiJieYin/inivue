@@ -230,6 +230,45 @@ end 可以用的标签名：
 ##还有一个VueX 并没有加进来，那是一些大型项目才会用到了，如果只是做个小demo了解vue，没必要搞VueX。
 ##Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 Vue 的官方调试工具 devtools extension，提供了诸如零配置的 time-travel 调试、状态快照导入导出等高级调试功能。 
 
+## 路由设置
+
+import Vue from 'vue'
+import Router from 'vue-router'
+import HelloWorld from '@/components/HelloWorld'
+import Goods from '@/components/Goods'
+import Mine from '@/components/Mine'
+import ShoppingCar from '@/components/ShoppingCar'
+
+Vue.use(Router)
+
+export default new Router({
+  routes: [
+    {
+      path: '/',
+      name: 'HelloWorld',
+      component: HelloWorld,
+      children:[{//子路由
+        path: '/goods',
+        name: 'Goods',
+        component: Goods
+      },{
+        path: '/mine',
+        name: 'Mine',
+        component: Mine
+      },{
+        path: '/shoppingcar',
+        name: 'ShoppingCar',
+        component: ShoppingCar
+      }]
+    },{
+      path:'*',//设置通用的404页面
+      name:'404',
+      component:HelloWorld
+    }
+  ],
+  mode:'history' //用来设置去除#号
+})
+
 ## 总结
 ```
 index.html -> main.js -> App.vue -> components
