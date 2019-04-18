@@ -50,7 +50,7 @@ config -- 字面意思，可以在里面配置一些配置，比如在index.js�
 my-them -- 这个是后面创建的，结合iview，就是一个定制的主题，样式什么都在里面导
 node_modules -- 安装的插件，或者组件都在这个里面
 *src* -- 主目录，主要是在这个文件夹下面写代码，
-    assets -- 我也不知道字是干嘛的，就当他是个普通文件夹
+    assets -- module assets (processed by webpack)
     components -- 组件，所有的组件都放在这里面
     router -- 路由，路由的配置都在这里面，在index.js里面配置路由,已经有示例了，先导vue,再导router,vue.use(router),照葫芦画瓢
     App.vue 主组件
@@ -64,14 +64,14 @@ node_modules -- 安装的插件，或者组件都在这个里面
     })
     `
     el指定的元素，可以在外层目录的index.html里面找到只能对应一个
-static -- 不知道有什么用，放一些静态文件吧
+static -- 放一些静态文件
 .babelrc -- 可以在里面配置iview的按需导入组件和一些其它组件
 .editorconfig -- 一些编辑的配置，像什么字符集什么的
 .gitignore -- 如果用了git，这个是用来忽略一些不需要上传的文件
 .postcssrc.js -- 配置一些loader啊什么的
 index.html -- 程序主文件，一打开就是它
 package-look.json -- 内容太多，看不懂
-package.json -- 一些配置吧
+package.json -- 构建脚本和依赖项
 ```
 
 ##配置 resource 可以随便使用http请求
